@@ -11,8 +11,8 @@ async function startApplication() {
     credentials: true,
   });
 
-  await app.listen(process.env.PORT ?? 3000);
-  console.log("App listening on localhost:" + (process.env.PORT ?? 3000))
+  await app.listen(process.env.PORT ?? 8080);
+  console.log("App listening on localhost:" + (process.env.PORT ?? 8080))
 }
 
 startApplication();

@@ -1,7 +1,7 @@
 import {Controller, Get, Post, Query, Body, Patch, Param, HttpCode} from '@nestjs/common';
 import { CardService, QuizzService } from '../services';
 import { Card } from '../entities';
-import {CardUserData, CardDTO, AnswerDTO } from 'types';
+import {CardUserData, CardDTO, AnswerDTO } from 'src/types';
 
 const CATEGORIES = ['FIRST', 'SECOND', 'THIRD', 'FOURTH', 'FIFTH', 'SIXTH', 'SEVENTH', 'DONE'];
 

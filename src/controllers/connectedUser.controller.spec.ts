@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { ConnectedUserController } from './connectedUser.controller';
 import { CardService, QuizzService } from '../services';
-import { CardUserData } from 'types';
+import { CardUserData } from 'src/types';
 import { Card } from '../entities';
 
 describe('ConnectedUserController tests', () => {

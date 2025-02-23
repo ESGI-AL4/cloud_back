@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Card } from '../entities';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CardUserData, CardRepoPayload } from 'types';
+import { CardUserData, CardRepoPayload } from 'src/types';
 
 @Injectable()
 export class CardService {
