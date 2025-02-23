@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConnectedUserController } from './controllers';
+import {ConnectedUserController, HealthController} from './controllers';
 import { CardService, QuizzService } from './services';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Card, Quizz } from './entities';
@@ -15,7 +15,7 @@ import { Card, Quizz } from './entities';
     TypeOrmModule.forFeature([Card]),
     TypeOrmModule.forFeature([Quizz]),
   ],
-  controllers: [ConnectedUserController],
+  controllers: [ConnectedUserController, HealthController],
   providers: [CardService, QuizzService],
 })
 export class AppModule {}
