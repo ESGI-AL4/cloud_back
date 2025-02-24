@@ -1,4 +1,4 @@
-import {Controller, Post, Body, HttpCode, NotFoundException, Get} from '@nestjs/common';
+import { Controller, Get, Post, Body, Query, HttpCode, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
@@ -9,7 +9,7 @@ import { UpdateAlarmDto } from '../dto/update-alarm.dto';
 export class AuthController {
     constructor(
         @InjectRepository(User)
-        private userRepository: Repository<User>,
+        private readonly userRepository: Repository<User>,
     ) {}
 
     @Post('auth')
@@ -37,12 +37,11 @@ export class AuthController {
     }
 
     @Get('alarm')
-    async getAlarm(@Body() createUserDto: CreateUserDto): Promise<User> {
-        const { email } = createUserDto;
+    async getAlarm(@Query('email') email: string): Promise<{ alarm: string | null }> {
         const user = await this.userRepository.findOne({ where: { email } });
         if (!user) {
             throw new NotFoundException('User not found');
         }
-        return user;
+        return { alarm: user.alarm };
     }
 }

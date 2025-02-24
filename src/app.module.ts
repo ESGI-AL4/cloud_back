@@ -3,6 +3,7 @@ import {AuthController, ConnectedUserController, HealthController} from './contr
 import { CardService, QuizzService } from './services';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Card, Quizz } from './entities';
+import {User} from "./entities/user.entity";
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { Card, Quizz } from './entities';
     }),
     TypeOrmModule.forFeature([Card]),
     TypeOrmModule.forFeature([Quizz]),
+    TypeOrmModule.forFeature([User]),
   ],
   controllers: [ConnectedUserController, HealthController, AuthController],
   providers: [CardService, QuizzService],
